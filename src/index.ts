@@ -4,6 +4,8 @@ import connectDB from "./infrastructure/database/db";
 import errorMiddleware from "./middlewares/ErrorMiddleware";
 dotenv.config();
 import authRoute from "./interfaces/routes/AuthRoute"
+import adminRoute from "./interfaces/routes/AdminRoute"
+import morgan from "morgan"
 
 const port: string | undefined = process.env.PORT;
 const app = express();
@@ -11,8 +13,11 @@ const app = express();
 connectDB()
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
+app.use(morgan("dev"))
 
 app.use("/api/auth",authRoute)
+app.use("/api/admin",adminRoute)
+
 app.use(errorMiddleware)
 
 
