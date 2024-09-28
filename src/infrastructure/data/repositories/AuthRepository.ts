@@ -7,10 +7,10 @@ export class AuthRespository implements IAuthRepository {
  async findByEmail(email: string): Promise<User | null> {
     return await UserDB.findOne({ email });
   }
-  createUser(email: string, password: string,name:string): Promise<User> {
-    return UserDB.create({ email, password ,name,isAdmin:false});
+ async createUser(email: string, password: string,name:string): Promise<User> {
+    return await UserDB.create({ email, password ,name,isAdmin:false,isBlocked:false});
   }
-  findByIdAndUpdatePassword(id: mongoose.Types.ObjectId, password: string): Promise<User | null> {
-    return UserDB.findByIdAndUpdate(id, { password });
+  async findByIdAndUpdatePassword(id: mongoose.Types.ObjectId, password: string): Promise<User | null> {
+    return  await UserDB.findByIdAndUpdate(id, { password });
   }
 }

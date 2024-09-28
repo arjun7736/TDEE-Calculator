@@ -6,6 +6,6 @@ export class GetAllUsers {
 
   async execute() {
     const users = await this.adminRepo.getAllUsers();
-    return users.map(user=> new User(user._id,user.name,user.email,user.isAdmin))
+    return users.map(user=> new User(user._id,user.name,user.email,user.isAdmin,user.isBlocked))
   }
 }

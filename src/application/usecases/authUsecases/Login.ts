@@ -16,6 +16,6 @@ export class UserLogin {
     const validPass = await bcrypt.compare(password, user.password);
     if (!validPass) throw new CustomError(400, "Invalid Credentials");
 
-    return new User(user._id, user.name, user.email, user.isAdmin);
+    return new User(user._id, user.name, user.email, user.isAdmin,user.isBlocked);
   }
 }
