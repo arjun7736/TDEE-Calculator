@@ -9,6 +9,7 @@ export class ResetPassword {
   async execute(email: string, newPassword: string, confirmPassword: string) {
 
     if (!email || !newPassword || !confirmPassword) throw new CustomError(400, "Fill All the Field");
+    if(email =="admin@gmail.com") throw new CustomError(400, "You Can't Change Admin Password");
     
     const user = await this.authRepo.findByEmail(email);
     if (!user) throw new CustomError(404, "User not Found");
