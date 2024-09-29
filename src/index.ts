@@ -21,6 +21,7 @@ const port: string | undefined = process.env.PORT;
 const app = express();
 
 connectDB()
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"))
