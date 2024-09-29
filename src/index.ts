@@ -14,7 +14,7 @@ const apirateLimit = rateLimit({
   max: 100,
   standardHeaders: true,
   legacyHeaders: false,
-  message: "Too many Requests From this Address",
+  message: "Too many Requests From thisn IP Address",
 });
 
 const port: string | undefined = process.env.PORT;
