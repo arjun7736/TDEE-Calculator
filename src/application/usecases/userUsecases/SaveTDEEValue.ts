@@ -3,6 +3,7 @@ import {
   calculateBMR,
   getActivityMultiplier,
 } from "../../../utils/CalculateValue";
+import { CustomError } from "../../../utils/Error";
 
 export class SaveTDEEValue {
   constructor(private userRepo: IUserRepository) {}
@@ -15,6 +16,7 @@ export class SaveTDEEValue {
     gender: string,
     activityLevel: string
   ) {
+    if(!weight || !height || !age || !gender || activityLevel) throw new CustomError(400, "Fill all the Feild")
     type Gender = "male" | "female";
     type ActivityLevel =
       | "sedentary"

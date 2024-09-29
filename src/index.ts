@@ -7,6 +7,15 @@ import authRoute from "./interfaces/routes/AuthRoute"
 import adminRoute from "./interfaces/routes/AdminRoute"
 import userRoute from "./interfaces/routes/UserRoute"
 import morgan from "morgan"
+import rateLimit from "express-rate-limit";
+
+const apirateLimit = rateLimit({
+  windowMs:15*60*1000,
+  max:100,
+  standardHeaders:true,
+  legacyHeaders:true,
+  message:"Too many Requests From this Address"
+})
 
 const port: string | undefined = process.env.PORT;
 const app = express();
@@ -16,6 +25,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"))
 
+app.use("/api",apirateLimit)
 app.use("/api/auth",authRoute)
 app.use("/api/admin",adminRoute)
 app.use("/api/user",userRoute)

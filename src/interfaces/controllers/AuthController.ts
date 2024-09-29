@@ -15,7 +15,7 @@ export class AuthController {
     try {
       const { email, password } = req.body;
       const login = await this.userLogin.execute(email, password);
-      const token = await generateToken(login._id);
+      const token = generateToken(login._id);
       res.json({ user: login, token: token });
     } catch (error) {
       next(error);
