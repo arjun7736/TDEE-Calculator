@@ -1,4 +1,5 @@
 import { TDEE } from "../entities/TDEE";
+import { User } from "../entities/User";
 
 export interface IUserRepository {
   findHistoryById(id: string): Promise<TDEE[]>;
@@ -11,4 +12,6 @@ export interface IUserRepository {
     activityLevel: string,
     tdee: number
   ): Promise<string>;
+  findUserById(id:string):Promise<User | null>
+  updateById(id:string,name:string):Promise<string>
 }

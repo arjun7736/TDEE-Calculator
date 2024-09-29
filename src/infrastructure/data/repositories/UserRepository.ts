@@ -1,6 +1,8 @@
 import { TDEE } from "../../../domain/entities/TDEE";
+import { User } from "../../../domain/entities/User";
 import { IUserRepository } from "../../../domain/interfaces/IUserRepository";
 import TDEEDB from "../models/TdeeModel";
+import UserDB from "../models/UserModel";
 
 export class UserRepository implements IUserRepository {
   async saveDataById(
@@ -27,5 +29,14 @@ export class UserRepository implements IUserRepository {
   
   async findHistoryById(id: string): Promise<TDEE[]> {
     return await TDEEDB.find({ userId: id });
+  }
+
+ async findUserById(id: string): Promise<User|null> {
+    return await UserDB.findById(id)
+  }
+
+ async updateById(id: string, name: string): Promise<string> {
+     await UserDB.findByIdAndUpdate({_id:id},{name:name}) 
+     return "Profile Saved"
   }
 }
