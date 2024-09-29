@@ -32,6 +32,9 @@ Copy code
 npm run dev
 Visit the application at http://localhost:3000/.
 
+
+create an .env to add environment variables
+
 API Endpoints
 Admin Endpoints
 Get All Users
