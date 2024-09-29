@@ -12,25 +12,20 @@ npm (v6 or higher)
 Steps to Set Up Locally
 Clone the repository:
 
-bash
-Copy code
+
 git clone https://github.com/arjun7736/TDEE-Calculator.git
 Navigate to the project folder:
 
-bash
-Copy code
+
 cd TDEE-Calculator
 Install the necessary dependencies:
 
-bash
-Copy code
+
 npm install
 Run the application:
 
-bash
-Copy code
 npm run dev
-Visit the application at http://localhost:3000/.
+Visit the application at http://localhost:3000/
 
 
 create an .env to add environment variables
