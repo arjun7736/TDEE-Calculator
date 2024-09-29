@@ -40,11 +40,11 @@ GET http://localhost:3000/api/admin/get-allusers
 
 Block User
 Blocks a user by their ID.
-PUT http://localhost:3000/api/admin/block-user/:id
+PATCH http://localhost:3000/api/admin/block-user/:id
 
 Unblock User
 Unblocks a user by their ID.
-PUT http://localhost:3000/api/admin/unblock-user/:id
+PATCH http://localhost:3000/api/admin/unblock-user/:id
 
 Authentication Endpoints
 Login
@@ -57,7 +57,7 @@ POST http://localhost:3000/api/auth/register
 
 Reset Password
 Sends a password reset request.
-POST http://localhost:3000/api/auth/reset-password
+PATCH http://localhost:3000/api/auth/reset-password
 
 User Endpoints
 Save TDEE
