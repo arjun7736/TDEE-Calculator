@@ -13,5 +13,5 @@ export interface IUserRepository {
     tdee: number
   ): Promise<string>;
   findUserById(id:string):Promise<User | null>
-  updateById(id:string,name:string):Promise<string>
+  updateById(id:string,name:string):Promise<User|null>
 }

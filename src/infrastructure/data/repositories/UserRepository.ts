@@ -35,8 +35,7 @@ export class UserRepository implements IUserRepository {
     return await UserDB.findById(id)
   }
 
- async updateById(id: string, name: string): Promise<string> {
-     await UserDB.findByIdAndUpdate({_id:id},{name:name}) 
-     return "Profile Saved"
+ async updateById(id: string, name: string): Promise<User | null> {
+  return await UserDB.findByIdAndUpdate({_id:id},{name:name},{new:true})
   }
 }
