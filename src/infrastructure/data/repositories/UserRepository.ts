@@ -22,7 +22,7 @@ export class UserRepository implements IUserRepository {
       gender,
       activityLevel,
       tdeeValue: tdee,
-    });
+    },{new:true});
     return "Saved SuccessFully";
   }
 

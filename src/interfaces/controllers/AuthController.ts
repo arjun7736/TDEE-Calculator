@@ -14,7 +14,6 @@ export class AuthController {
   async login(req: Request, res: Response, next: NextFunction) {
     try {
       const { email, password } = req.body;
-      console.log(req.body)
       const login = await this.userLogin.execute(email, password);
       const token = generateToken(login._id);
       res.json({ user: login, token: token });

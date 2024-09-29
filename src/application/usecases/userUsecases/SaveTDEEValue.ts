@@ -16,7 +16,7 @@ export class SaveTDEEValue {
     gender: string,
     activityLevel: string
   ) {
-    if(!weight || !height || !age || !gender || activityLevel) throw new CustomError(400, "Fill all the Feild")
+    if(!weight || !height || !age || !gender || !activityLevel) throw new CustomError(400, "Fill all the Feild")
     type Gender = "male" | "female";
     type ActivityLevel =
       | "sedentary"

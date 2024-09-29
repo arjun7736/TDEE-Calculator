@@ -10,7 +10,7 @@ export class UserRegister {
     if(!email || !password) throw new CustomError(400, "Fill All the Field");
     
     const user = await this.authRepo.findByEmail(email);
-    if (user) throw new CustomError(400, "User Already Exists");
+    if (user) throw new CustomError(409, "User Already Exists");
 
     const valiedEmail =  checkEmail(email);
     const valiedPassword =  checkPassword(password);
