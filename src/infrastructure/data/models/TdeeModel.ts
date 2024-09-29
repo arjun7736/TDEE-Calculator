@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 interface ITDEE extends Document {
-  userId: mongoose.Types.ObjectId;
+  userId: string;
   weight: number;
   height: number;
   age: number;
@@ -13,7 +13,7 @@ interface ITDEE extends Document {
 
 const tdeeSchema: Schema = new Schema({
   userId: {
-    type: Schema.Types.ObjectId,
+    type: String,
     ref: "User",
     required: true,
   },
@@ -31,10 +31,12 @@ const tdeeSchema: Schema = new Schema({
   },
   gender: {
     type: String,
+    enum: ['male', 'female'], 
     required: true,
   },
   activityLevel: {
     type: String,
+    enum: ['sedentary', 'lightly_active', 'moderately_active', 'very_active', 'super_active'],
     required: true,
   },
   tdeeValue: {

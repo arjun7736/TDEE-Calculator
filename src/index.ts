@@ -5,6 +5,7 @@ import errorMiddleware from "./middlewares/ErrorMiddleware";
 dotenv.config();
 import authRoute from "./interfaces/routes/AuthRoute"
 import adminRoute from "./interfaces/routes/AdminRoute"
+import userRoute from "./interfaces/routes/UserRoute"
 import morgan from "morgan"
 
 const port: string | undefined = process.env.PORT;
@@ -17,6 +18,7 @@ app.use(morgan("dev"))
 
 app.use("/api/auth",authRoute)
 app.use("/api/admin",adminRoute)
+app.use("/api/user",userRoute)
 
 app.use(errorMiddleware)
 

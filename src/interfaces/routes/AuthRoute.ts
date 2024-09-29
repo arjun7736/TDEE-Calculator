@@ -18,7 +18,7 @@ const authController =new AuthController(userLogin,userRegister,resetPass)
 router.post("/login",(req,res,next)=>authController.login(req,res,next))
 router.post("/register",(req,res,next)=>authController.register(req,res,next))
 router.patch("/reset-password",(req,res,next)=>authController.resetPassword(req,res,next))
-    
+
 
 
 

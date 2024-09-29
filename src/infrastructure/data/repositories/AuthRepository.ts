@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { User } from "../../../domain/entities/User";
 import { IAuthRepository } from "../../../domain/interfaces/IAuthRepository";
 import UserDB from "../models/UserModel"
+
 export class AuthRespository implements IAuthRepository {
  
  async findByEmail(email: string): Promise<User | null> {
