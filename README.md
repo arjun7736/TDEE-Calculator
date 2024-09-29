@@ -49,6 +49,7 @@ PATCH http://localhost:3000/api/admin/block-user/:id
 
 #### Unblock User
 Unblocks a user by their ID.
+
 PATCH http://localhost:3000/api/admin/unblock-user/:id
 
 
