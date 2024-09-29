@@ -63,11 +63,13 @@ POST http://localhost:3000/api/auth/login
 
 #### Register
 Registers a new user.
+
 POST http://localhost:3000/api/auth/register
 
 
 #### Reset Password
 Sends a password reset request.
+
 PATCH http://localhost:3000/api/auth/reset-password
 
 
@@ -75,6 +77,7 @@ PATCH http://localhost:3000/api/auth/reset-password
 
 #### Save TDEE
 Saves the TDEE calculation result for the logged-in user.
+
 POST http://localhost:3000/api/user/save-tdee
 
 
