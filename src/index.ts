@@ -8,6 +8,7 @@ import adminRoute from "./interfaces/routes/AdminRoute";
 import userRoute from "./interfaces/routes/UserRoute";
 import morgan from "morgan";
 import rateLimit from "express-rate-limit";
+import cors from "cors"
 
 const apirateLimit = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -17,9 +18,16 @@ const apirateLimit = rateLimit({
   message: "Too many Requests From thisn IP Address",
 });
 
+const corsOptions = {
+  origin: 'http://localhost:3000', 
+  methods: ['GET', 'POST', 'PUT', 'PATCH','DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, 
+};
+
 const port: string | undefined = process.env.PORT;
 const app = express();
-
+app.use(cors(corsOptions))
 connectDB();
 app.set("trust proxy", false);
 app.use(express.json());
